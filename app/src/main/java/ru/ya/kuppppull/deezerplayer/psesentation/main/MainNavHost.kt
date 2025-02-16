@@ -12,6 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ru.ya.kuppppull.deezerplayer.core.ui.widgets.BottomNavBar
+import ru.ya.kuppppull.deezerplayer.psesentation.downloaded_tracks.navigation.DownloadedTracksBottomMenuItem
+import ru.ya.kuppppull.deezerplayer.psesentation.downloaded_tracks.navigation.downloads
 import ru.ya.kuppppull.deezerplayer.psesentation.tracks_from_api.navigation.TracksFromApiBottomMenuItem
 import ru.ya.kuppppull.deezerplayer.psesentation.tracks_from_api.navigation.TracksFromApiDestination
 import ru.ya.kuppppull.deezerplayer.psesentation.tracks_from_api.navigation.api
@@ -26,6 +28,7 @@ fun MainNavHost(
     val currentRoute = navBackStackEntry?.destination?.route
     val destinations = listOf(
         TracksFromApiBottomMenuItem(),
+        DownloadedTracksBottomMenuItem()
     )
 
     val navOptions = NavOptions.Builder()
@@ -54,6 +57,7 @@ fun MainNavHost(
                 api(
                     onNavigateToPlayer = {}
                 )
+                downloads()
             }
         }
     }
