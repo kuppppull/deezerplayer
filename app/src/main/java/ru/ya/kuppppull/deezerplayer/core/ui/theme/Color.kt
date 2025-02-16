@@ -1,4 +1,4 @@
-package ru.ya.kuppppull.deezerplayer.ui.theme
+package ru.ya.kuppppull.deezerplayer.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

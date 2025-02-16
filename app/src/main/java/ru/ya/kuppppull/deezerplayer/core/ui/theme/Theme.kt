@@ -1,4 +1,4 @@
-package ru.ya.kuppppull.deezerplayer.ui.theme
+package ru.ya.kuppppull.deezerplayer.core.ui.theme
 
 import android.app.Activity
 import android.os.Build

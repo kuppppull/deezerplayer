@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Deezer Player</string>
+    <string name="api">API</string>
+    <string name="search">Search...</string>
+    <string name="search_icon">Search icon</string>
+    <string name="clear">Clear</string>
+
 </resources>
