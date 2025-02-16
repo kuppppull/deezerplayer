@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlinSerialization)
+
 }
 
 android {
@@ -35,6 +37,14 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.json)
+    implementation(libs.okhttp3.interceptor)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+
+    implementation(libs.kotlinx.serialization.json)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
