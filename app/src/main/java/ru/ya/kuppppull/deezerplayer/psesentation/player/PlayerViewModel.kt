@@ -59,12 +59,14 @@ class PlayerViewModel(
         @UnstableApi
         override fun onMediaMetadataChanged(mediaMetadata: MediaMetadata) {
             super.onMediaMetadataChanged(mediaMetadata)
+
             _uiState.update {
                 it.copy(
                     trackTitle = mediaMetadata.title.toString(),
                     trackArtist = mediaMetadata.artist.toString(),
                     trackDuration = mediaMetadata.durationMs?.toInt() ?: 0,
-                    trackAlbumUrl = mediaMetadata.artworkUri.toString()
+                    trackAlbumUrl = mediaMetadata.artworkUri.toString(),
+                    trackPreview = mediaController?.currentMediaItem?.localConfiguration?.uri.toString()
                 )
             }
         }
