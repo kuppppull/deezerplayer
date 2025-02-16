@@ -14,6 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import ru.ya.kuppppull.deezerplayer.core.ui.widgets.BottomNavBar
 import ru.ya.kuppppull.deezerplayer.psesentation.downloaded_tracks.navigation.DownloadedTracksBottomMenuItem
 import ru.ya.kuppppull.deezerplayer.psesentation.downloaded_tracks.navigation.downloads
+import ru.ya.kuppppull.deezerplayer.psesentation.player.navigation.PlayerDestination
+import ru.ya.kuppppull.deezerplayer.psesentation.player.navigation.player
 import ru.ya.kuppppull.deezerplayer.psesentation.tracks_from_api.navigation.TracksFromApiBottomMenuItem
 import ru.ya.kuppppull.deezerplayer.psesentation.tracks_from_api.navigation.TracksFromApiDestination
 import ru.ya.kuppppull.deezerplayer.psesentation.tracks_from_api.navigation.api
@@ -55,11 +57,23 @@ fun MainNavHost(
             ) {
 
                 api(
-                    onNavigateToPlayer = {}
+                    onNavigateToPlayer = {
+                        navController.navigate(
+                            PlayerDestination,
+                            navOptions
+                        )
+                    }
                 )
                 downloads(
-                    onNavigateToPlayer = {}
+                    onNavigateToPlayer = {
+                        navController.navigate(
+                            PlayerDestination,
+                            navOptions
+                        )
+                    }
                 )
+
+                player()
             }
         }
     }
