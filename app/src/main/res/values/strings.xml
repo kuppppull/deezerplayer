@@ -5,5 +5,6 @@
     <string name="search_icon">Search icon</string>
     <string name="clear">Clear</string>
     <string name="downloaded">Download</string>
+    <string name="search_error">Search error</string>
 
 </resources>

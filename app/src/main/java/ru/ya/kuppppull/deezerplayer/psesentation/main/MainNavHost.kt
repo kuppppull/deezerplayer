@@ -57,7 +57,9 @@ fun MainNavHost(
                 api(
                     onNavigateToPlayer = {}
                 )
-                downloads()
+                downloads(
+                    onNavigateToPlayer = {}
+                )
             }
         }
     }
