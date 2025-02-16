@@ -2,15 +2,18 @@ package ru.ya.kuppppull.deezerplayer.data.repository
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import ru.ya.kuppppull.deezerapi.data.FilesScanner
+import ru.ya.kuppppull.deezerplayer.data.FilesScanner
+import ru.ya.kuppppull.deezerplayer.data.Mp3Downloader
 import ru.ya.kuppppull.deezerplayer.data.mappers.toDomain
 import ru.ya.kuppppull.deezerplayer.data.network.api.DeezerApiService
+import ru.ya.kuppppull.deezerplayer.data.utils.encodeBase64
 import ru.ya.kuppppull.deezerplayer.domain.models.Track
 import ru.ya.kuppppull.deezerplayer.domain.models.TrackSource
 import ru.ya.kuppppull.deezerplayer.domain.repository.TrackRepository
 
 class TrackRepositoryImpl(
     private val api: DeezerApiService,
+    private val downloader: Mp3Downloader,
     private val fileManager: FilesScanner
 ) : TrackRepository {
 
@@ -62,6 +65,19 @@ class TrackRepositoryImpl(
         return when (source) {
             is TrackSource.Api -> api.getSong(query = songId.toString()).toDomain()
             is TrackSource.Local -> fileManager.getFile(songId)
+        }
+    }
+
+    override suspend fun saveTrack(track: Track) {
+        withContext(Dispatchers.IO) {
+
+            val safeArtist = encodeBase64(track.artist)
+            val safeTitle = encodeBase64(track.title)
+
+            downloader.save(
+                url = track.preview,
+                fileName = "${track.id}%%%${safeArtist}%%%${safeTitle}.mp3"
+            )
         }
     }
 }

@@ -16,8 +16,6 @@ import ru.ya.kuppppull.deezerplayer.R
 import ru.ya.kuppppull.deezerplayer.domain.models.Track
 import ru.ya.kuppppull.deezerplayer.domain.models.TrackSource
 import ru.ya.kuppppull.deezerplayer.psesentation.player.PlayerUiState
-import ru.ya.kuppppull.deezerplayer.psesentation.player.ui.SingleActionButton
-import ru.ya.kuppppull.deezerplayer.psesentation.player.ui.SliderWithTime
 
 @Composable
 fun PlayerScreenLandscape(

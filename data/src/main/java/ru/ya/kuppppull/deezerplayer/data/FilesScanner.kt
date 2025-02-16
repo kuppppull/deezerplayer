@@ -1,4 +1,4 @@
-package ru.ya.kuppppull.deezerapi.data
+package ru.ya.kuppppull.deezerplayer.data
 
 import android.content.Context
 import ru.ya.kuppppull.deezerplayer.data.mappers.toSong

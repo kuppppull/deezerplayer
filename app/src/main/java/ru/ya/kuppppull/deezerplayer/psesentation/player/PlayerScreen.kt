@@ -5,21 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
-import ru.ya.kuppppull.deezerplayer.psesentation.player.ui.PlayerScreenLandscape
-import ru.ya.kuppppull.deezerplayer.psesentation.player.ui.PlayerScreenPortrait
 import ru.ya.kuppppull.deezerplayer.domain.models.Track
 import ru.ya.kuppppull.deezerplayer.domain.models.TrackSource
-
-data class PlayerUiState(
-    val isPlaying: Boolean = false,
-    val currentPosition: Int = 0,
-    val trackDuration: Int = 0,
-    val trackPreview: String = "",
-    val trackAlbumUrl: String = "",
-    val trackTitle: String = "",
-    val trackArtist: String = "",
-    val trackId: Long = 0L
-)
+import ru.ya.kuppppull.deezerplayer.psesentation.player.ui.PlayerScreenLandscape
+import ru.ya.kuppppull.deezerplayer.psesentation.player.ui.PlayerScreenPortrait
 
 @Composable
 fun PlayerScreen(
@@ -64,7 +53,8 @@ fun PlayerScreen(
     name = "Landscape Preview",
     showBackground = true,
     widthDp = 640,
-    heightDp = 360)
+    heightDp = 360
+)
 fun PlayerScreenPreview() {
     PlayerScreen(
         uiState = PlayerUiState(

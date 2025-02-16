@@ -9,5 +9,6 @@ interface TrackRepository {
     suspend fun searchTracks(query: String, source: TrackSource): List<Track>
     suspend fun getCache(source: TrackSource): List<Track>
     suspend fun getTrack(songId: Long, source: TrackSource): Track
+    suspend fun saveTrack(track: Track)
 
 }
